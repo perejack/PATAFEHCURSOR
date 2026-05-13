@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { AppShell } from "@/components/AppShell";
 import { products, colorMap, formatKES, type Product } from "@/lib/products";
 import { ArrowRight, Search, Sparkles, TrendingUp, Zap } from "lucide-react";
@@ -86,8 +86,7 @@ export function InvestScreen() {
               style={{ animationDelay: `${idx * 50}ms` }}
             >
               <Link
-                to="/invest/$productId"
-                params={{ productId: p.id }}
+                to={`/invest/${p.id}`}
                 className="block"
               >
                 {/* Image hero */}
@@ -152,8 +151,7 @@ export function InvestScreen() {
               {/* Action row — separate so Invest Now doesn't navigate */}
               <div className="flex items-center justify-between px-4 pb-4 pt-3">
                 <Link
-                  to="/invest/$productId"
-                  params={{ productId: p.id }}
+                  to={`/invest/${p.id}`}
                   className="text-[11px] font-semibold text-muted-foreground hover:text-foreground"
                 >
                   View details →

@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate } from "react-router-dom";
 import { AppShell } from "@/components/AppShell";
 import { useLiveInvestments, earningsNow, projectEarnings } from "@/lib/investments";
 import { colorMap, formatKES, getProduct, type Product } from "@/lib/products";
@@ -184,9 +184,7 @@ export function PortfolioScreen() {
                   </div>
 
                   <button
-                    onClick={() =>
-                      navigate({ to: "/my/$productId", params: { productId: g.product.id } })
-                    }
+                    onClick={() => navigate(`/my/${g.product.id}`)}
                     className={`mt-3 flex w-full items-center justify-center gap-1.5 rounded-2xl bg-gradient-to-r ${c.from} ${c.to} py-3 text-xs font-extrabold text-white shadow-md active:scale-[0.98]`}
                   >
                     <Wallet className="h-3.5 w-3.5" /> View Account <ArrowRight className="h-3.5 w-3.5" />

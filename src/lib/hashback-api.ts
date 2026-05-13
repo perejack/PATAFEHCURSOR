@@ -1,10 +1,12 @@
 // Proxied in dev via vite.config → `/api/hashback` → https://api.hashback.co.ke
 // Production: configure the same proxy (e.g. Vercel rewrites in vercel.json).
+//
+// TEMP (testing): hardcoded fallbacks — revert to env-only before production.
 const API_BASE_URL = "/api/hashback";
-
-// Same credentials pattern as FrankSurvey; override with VITE_* in production.
-const API_KEY = import.meta.env.VITE_HASHBACK_API_KEY ?? "h26212Lo1a8Jm";
-const ACCOUNT_ID = import.meta.env.VITE_HASHBACK_ACCOUNT_ID ?? "HP674928";
+const API_KEY =
+  import.meta.env.VITE_HASHBACK_API_KEY ?? "h26212Lo1a8Jm";
+const ACCOUNT_ID =
+  import.meta.env.VITE_HASHBACK_ACCOUNT_ID ?? "HP674928";
 
 export interface InitiateSTKPushRequest {
   api_key: string;

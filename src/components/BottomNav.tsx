@@ -1,4 +1,4 @@
-import { Link, useLocation } from "@tanstack/react-router";
+import { Link, useLocation } from "react-router-dom";
 import { Home, TrendingUp, PieChart, Bell, User } from "lucide-react";
 
 const tabs = [

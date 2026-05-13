@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useLiveInvestments, earningsNow, getProductFor, type Investment } from "@/lib/investments";
 import { colorMap, formatKES } from "@/lib/products";
@@ -134,7 +134,7 @@ function ProductPeekWrapper({ inv, onClose }: { inv: Investment | null; onClose:
       onProceed={() => {
         if (!product) return;
         onClose();
-        navigate({ to: "/my/$productId", params: { productId: product.id } });
+        navigate(`/my/${product.id}`);
       }}
     />
   );

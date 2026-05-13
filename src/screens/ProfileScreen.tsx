@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import avatarJames from "@/assets/avatar-james.jpg";
 import { signOutUser, useAuth } from "@/lib/auth";
-import { useNavigate } from "@tanstack/react-router";
+import { useNavigate } from "react-router-dom";
 
 const items = [
   { icon: Gift, label: "Referral Program", value: "8 friends · KES 1,200" },
@@ -127,14 +127,7 @@ export function ProfileScreen() {
                 </div>
                 <div className="flex items-center gap-2">
                   {it.value && (
-                    <span
-                      className={`text-xs font-medium ${
-                        it.verified ? "text-primary-bright" : "text-muted-foreground"
-                      }`}
-                    >
-                      {it.verified && "✓ "}
-                      {it.value}
-                    </span>
+                    <span className="text-xs font-medium text-muted-foreground">{it.value}</span>
                   )}
                   <ChevronRight className="h-4 w-4 text-muted-foreground" />
                 </div>
@@ -148,7 +141,7 @@ export function ProfileScreen() {
         <button
           onClick={async () => {
             await signOutUser();
-            await navigate({ to: "/login" });
+            await navigate("/login");
           }}
           className="flex w-full items-center justify-center gap-2 rounded-2xl border border-destructive/20 bg-destructive/5 py-3.5 text-sm font-semibold text-destructive active:scale-[0.98]"
         >

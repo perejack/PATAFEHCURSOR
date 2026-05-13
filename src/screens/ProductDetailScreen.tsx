@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams } from "@tanstack/react-router";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { getProduct, formatKES, colorMap } from "@/lib/products";
 import { ArrowLeft, Bookmark, Check, Star } from "lucide-react";
 import { useMemo, useState } from "react";
@@ -8,8 +8,8 @@ import { InvestFlow } from "@/components/InvestFlow";
 type Tab = "overview" | "returns" | "how" | "reviews";
 
 export function ProductDetailScreen() {
-  const { productId } = useParams({ from: "/invest/$productId" });
-  const product = getProduct(productId);
+  const { productId } = useParams<{ productId: string }>();
+  const product = productId ? getProduct(productId) : undefined;
   const navigate = useNavigate();
   const [tab, setTab] = useState<Tab>("overview");
   const [flowOpen, setFlowOpen] = useState(false);
@@ -39,7 +39,7 @@ export function ProductDetailScreen() {
         {/* Header */}
         <div className="sticky top-0 z-20 flex items-center justify-between border-b border-border bg-background/95 px-4 py-3 backdrop-blur">
           <button
-            onClick={() => navigate({ to: "/invest" })}
+            onClick={() => navigate("/invest")}
             className="flex h-9 w-9 items-center justify-center rounded-full bg-muted"
           >
             <ArrowLeft className="h-4 w-4" />

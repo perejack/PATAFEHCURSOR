@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { useNavigate } from "@tanstack/react-router";
+import { useNavigate } from "react-router-dom";
 import { Confetti } from "@/components/Confetti";
 import { formatKES, type Product, colorMap } from "@/lib/products";
 import { addInvestment, framedProjections } from "@/lib/investments";
@@ -679,7 +679,7 @@ export function InvestFlow({
               <button
                 onClick={() => {
                   onClose();
-                  navigate({ to: "/my/$productId", params: { productId: product.id } });
+                  navigate(`/my/${product.id}`);
                 }}
                 className="mt-3 flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 py-3.5 text-sm font-extrabold text-white shadow-lg active:scale-[0.98]"
               >
@@ -688,7 +688,7 @@ export function InvestFlow({
               <button
                 onClick={() => {
                   onClose();
-                  navigate({ to: "/invest" });
+                  navigate("/invest");
                 }}
                 className="mt-2 w-full rounded-2xl border border-border bg-background py-3 text-sm font-bold text-foreground active:scale-[0.98]"
               >

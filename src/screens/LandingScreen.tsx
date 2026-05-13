@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { ArrowRight, ShieldCheck, Sparkles, TrendingUp, Zap, Users, Star, CheckCircle2, PiggyBank, LineChart, Smartphone } from "lucide-react";
 import landingHero from "@/assets/landing-page-hero.jpg";
 import featureGrow from "@/assets/landing-feature-grow.jpg";

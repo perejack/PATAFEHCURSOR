@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Link, useNavigate, useParams } from "@tanstack/react-router";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { AppShell } from "@/components/AppShell";
 import { SocialProofTicker } from "@/components/SocialProofTicker";
 import { InvestFlow } from "@/components/InvestFlow";
@@ -52,13 +52,13 @@ function buildCurve(invested: number, ratePct: number, daysHeld: number, forward
 }
 
 export function MyHoldingScreen() {
-  const { productId } = useParams({ from: "/my/$productId" });
+  const { productId } = useParams<{ productId: string }>();
   const navigate = useNavigate();
   const { items: all, loading } = useLiveInvestments();
   const [topUpOpen, setTopUpOpen] = useState(false);
   const [withdrawMsg, setWithdrawMsg] = useState("");
 
-  const product = getProduct(productId);
+  const product = productId ? getProduct(productId) : undefined;
   const deposits = useMemo(
     () => all.filter((i) => i.productId === productId).sort((a, b) => b.investedAt - a.investedAt),
     [all, productId]
@@ -136,7 +136,7 @@ export function MyHoldingScreen() {
       {/* Header */}
       <header className="flex items-center justify-between px-5 pt-6">
         <button
-          onClick={() => navigate({ to: "/app" })}
+          onClick={() => navigate("/app")}
           className="flex h-9 w-9 items-center justify-center rounded-full bg-muted text-foreground active:scale-95"
           aria-label="Back"
         >

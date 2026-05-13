@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { AppShell } from "@/components/AppShell";
 import { LiveEarningsCounter } from "@/components/LiveEarningsCounter";
 import { MarketTicker } from "@/components/MarketTicker";
@@ -290,8 +290,7 @@ export function HomeScreen() {
             return (
               <Link
                 key={p.id}
-                to="/invest/$productId"
-                params={{ productId: p.id }}
+                to={`/invest/${p.id}`}
                 className="flex w-44 shrink-0 flex-col rounded-2xl border border-border bg-background p-3 transition-transform active:scale-[0.98]"
               >
                 <div className={`flex h-10 w-10 items-center justify-center rounded-xl text-xl ${c.bg}`}>

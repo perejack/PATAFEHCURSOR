@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmail, signUpWithEmail } from "@/lib/auth";
 import { Sparkles } from "lucide-react";
 
@@ -22,7 +22,7 @@ export function AuthScreen({ mode }: { mode: "login" | "signup" }) {
       } else {
         await signUpWithEmail(email, password, fullName);
       }
-      await navigate({ to: "/app" });
+      await navigate("/app");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Authentication failed");
     } finally {
