@@ -160,10 +160,10 @@ export const products: Product[] = [
     name: "Safaricom Hisa",
     rate: "35% daily + dividends",
     ratePct: 12775,
-    hook: "Use Safaricom every day. Own a piece of it from KES 500.",
+    hook: "Use Safaricom every day. Own a piece of it from KES 10.",
     description:
       "Fractional shares in Kenya's most profitable company. Dividends paid quarterly — your own personal Safaricom salary.",
-    min: 500,
+    min: 10,
     pills: ["Quarterly dividends", "NSE listed", "Kenya's #1 stock"],
     color: "green",
     payout: "Quarterly",

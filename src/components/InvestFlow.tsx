@@ -65,7 +65,7 @@ const methods: {
   },
 ];
 
-const presets = [250, 500, 1000, 2500, 5000, 10000];
+const presets = [10, 250, 500, 1000, 2500, 5000, 10000];
 
 export function InvestFlow({
   product,
